@@ -1,6 +1,6 @@
 import requests
 import os
-from fetch_spacex import get_image, resize_image
+from scripts import get_image, resize_image
 
 
 def get_hubble_image(image_id=1, correct_folder="images"):
