@@ -2,11 +2,11 @@ import os
 from dotenv import load_dotenv
 from instabot import Bot
 
-load_dotenv()
-INSTAGRAM_USER_NAME = os.environ['INSTAGRAM_USER_NAME']
-INSTAGRAM_PASSWORD = os.environ['INSTAGRAM_PASSWORD']
 
 def main():
+    load_dotenv()
+    INSTAGRAM_USER_NAME = os.environ['INSTAGRAM_USER_NAME']
+    INSTAGRAM_PASSWORD = os.environ['INSTAGRAM_PASSWORD']
     bot = Bot()
     bot.login(username=INSTAGRAM_USER_NAME, password=INSTAGRAM_PASSWORD)
     images = os.listdir("images")
