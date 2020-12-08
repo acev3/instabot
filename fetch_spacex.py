@@ -32,7 +32,8 @@ def resize_image(image_name):
     image = Image.open(image_name)
     image = image.convert('RGB')
     image.thumbnail((1080, 1080))
-    image.save("{}.{}".format(image_name.split(".")[0],"jpg"), format="JPEG")
+    os.path.splitext(image_name)[-1]
+    image.save("{}{}".format(os.path.splitext(image_name)[0], ".jpg"), format="JPEG")
 
 
 if __name__ == '__main__':
