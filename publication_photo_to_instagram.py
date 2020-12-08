@@ -11,12 +11,10 @@ def main():
     bot.login(username=INSTAGRAM_USER_NAME, password=INSTAGRAM_PASSWORD)
     images = os.listdir("images")
     for image in images:
-        try:
-            bot.upload_photo("images/{}".format(image), caption="Nice pic!")
-        except OSError:
+        if bot.upload_photo("images/{}".format(image), caption="Nice pic!"):
+            os.remove("images/{}.REMOVE_ME".format(image))
+        else:
             os.remove("images/{}".format(image))
-            pass
-        os.remove("images/{}.REMOVE_ME".format(image))
 
 
 if __name__ == '__main__':
