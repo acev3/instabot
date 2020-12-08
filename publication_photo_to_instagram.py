@@ -13,8 +13,11 @@ def main():
     for image in images:
         try:
             bot.upload_photo("images/{}".format(image), caption="Nice pic!")
-        except:
-            continue
+        except OSError:
+            os.remove("images/{}".format(image))
+            pass
+        os.remove("images/{}.REMOVE_ME".format(image))
+
 
 if __name__ == '__main__':
     main()
