@@ -10,7 +10,6 @@ def main():
     bot = Bot()
     bot.login(username=INSTAGRAM_USER_NAME, password=INSTAGRAM_PASSWORD)
     images = os.listdir("images")
-    # bot.upload_photo("images_hubble/3955.jpg", caption="Nice pic!")
     for image in images:
         try:
             bot.upload_photo("images/{}".format(image), caption="Nice pic!")
