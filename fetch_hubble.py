@@ -8,9 +8,9 @@ def get_hubble_image(image_id=1, correct_folder="images"):
     response = requests.get(url, verify=False)
     response.raise_for_status()
     image = response.json()['image_files'][-1]
-    exception = os.path.splitext(image['file_url'])[-1]
+    extension = os.path.splitext(image['file_url'])[-1]
     url = "https:{}".format(image['file_url'])
-    filename = "{}{}".format(image_id, exception)
+    filename = "{}{}".format(image_id, extension)
     filepath = os.path.join(correct_folder, filename)
     get_image(url, filepath)
     resize_image(filepath)
