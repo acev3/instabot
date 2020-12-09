@@ -14,5 +14,4 @@ def resize_image(image_name):
     image = Image.open(image_name)
     image = image.convert('RGB')
     image.thumbnail((1080, 1080))
-    os.path.splitext(image_name)[-1]
     image.save("{}{}".format(os.path.splitext(image_name)[0], ".jpg"), format="JPEG")
